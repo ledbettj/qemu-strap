@@ -1,7 +1,7 @@
 HDISK  = images/hd.img
 KERNEL = linux/arch/x86_64/boot/bzImage
 QEMU   = qemu-system-x86_64
-QFLAGS = -m 1024 -smp 2 -hda $(HDISK) -kernel $(KERNEL) -append "root=/dev/sda"
+QFLAGS = -m 1024 -smp 2 -hda $(HDISK) -kernel $(KERNEL) -append "root=/dev/sda" -monitor stdio -usb
 QSHARE = -virtfs local,id=shared,path=./share,security_model=passthrough,mount_tag=shared
 
 .PHONY: run setup

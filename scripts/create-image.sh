@@ -24,6 +24,7 @@ mount     /dev/loop0 "$TEMP"
 
 pacstrap -c -d "$TEMP" base
 sed -ri 's/root:[^:]+/root:/' "$TEMP/etc/shadow" # remove root password
+echo -e "/dev/sda\t/\text2\tdefaults,noatime\t0\t1" >> "$TEMP/etc/fstab"
 
 umount     /dev/loop0
 losetup -d /dev/loop0
